@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'p1.dart';
+import 'p2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +16,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      initialRoute: '/',
+      routes: {
+        // '/': (context) => const MyHomePage(title: "MainMenu"),
+        '/Page1': (context) => const Page1(),
+        '/Page2': (context) => const P2(),
+      },
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -110,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
               // Center is a layout widget. It takes a single child and positions it
               // in the middle of the parent.
               child: Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
@@ -140,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
               ElevatedButton(
                   onPressed: () {
-                    _incrementCounter();
+                    Navigator.pushNamed(context, '/Page1');
                   },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.amber,
@@ -149,7 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Row(
                     children: const [
                       Icon(Icons.add_moderator, color: Colors.white, size: 45),
-                      Text(" + "),
+                      Text("ไปที่หน้าหนึ่ง"),
                     ],
                   )),
               ElevatedButton(
